@@ -24,11 +24,16 @@ struct ContentView: View {
                         .onChanged { value in
                             self.currentPosition = CGSize(width: value.translation.width + self.newPosition.width, height: value.translation.height + self.newPosition.height)
                         }
+                                .onEnded { value in
+                                    self.currentPosition = CGSize(width: value.translation.width + self.newPosition.width, height: value.translation.height + self.newPosition.height)
+                                    print(self.newPosition.width)
+                                    self.newPosition = self.currentPosition
+                                }
+                            )
+                        }
             }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView()
+        }
     }
-}
