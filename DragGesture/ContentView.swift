@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var currentPosition: CGSize = .zero
+    @State private var newPosition: CGSize = .zero
     var body: some View {
         Text("Hello, world!")
             .padding()
