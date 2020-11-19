@@ -19,11 +19,12 @@ struct ContentView: View {
             .frame(width: 100, height: 100)
             .foregroundColor(Color.red)
             .offset(x: self.currentPosition.width, y: self.currentPosition.height)
-            // Create Circle
+            // a Drag Gesture is created, this updates the current position during the drag
             .gesture(DragGesture()
                         .onChanged { value in
                             self.currentPosition = CGSize(width: value.translation.width + self.newPosition.width, height: value.translation.height + self.newPosition.height)
                         }
+                        // At the end of the drag gesture the new position is set
                                 .onEnded { value in
                                     self.currentPosition = CGSize(width: value.translation.width + self.newPosition.width, height: value.translation.height + self.newPosition.height)
                                     print(self.newPosition.width)
